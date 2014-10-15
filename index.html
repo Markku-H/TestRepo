@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/MyFontsWebfontsKit.css">
+	<title>ALL-IN-1</title>
+	
+	<script>
+		
+		function firstTab() {
+			document.getElementById('home').className="current";
+			document.getElementById('newCars').className="";
+			document.getElementById('usedCars').className="";
+
+			document.getElementById('sect1').style.display="block";
+			document.getElementById('sect2').style.display="block";
+			document.getElementById('sect3').style.display="block";
+			document.getElementById('sect4').style.display="block";
+			document.getElementById('sect5').style.display="block";
+			document.getElementById('uudet').style.display="none";
+			document.getElementById('kaytetyt').style.display="none";
+		}
+		
+		function secondTab() {
+			document.getElementById('home').className="";
+			document.getElementById('newCars').className="current";
+			document.getElementById('usedCars').className="";
+			hideContent();
+			document.getElementById('uudet').style.display="block";
+			document.getElementById('kaytetyt').style.display="none";
+			window.scrollTo(0,0);
+		}
+		
+		function thirdTab() {
+			document.getElementById('home').className="";
+			document.getElementById('newCars').className="";
+			document.getElementById('usedCars').className="current";
+			hideContent();
+			document.getElementById('uudet').style.display="none";
+			document.getElementById('kaytetyt').style.display="block";
+			window.scrollTo(0,0);
+		}
+		
+		function hideContent() {
+			console.log("hidecontent");
+			document.getElementById('sect1').style.display="none";
+			document.getElementById('sect2').style.display="none";
+			document.getElementById('sect3').style.display="none";
+			document.getElementById('sect4').style.display="none";
+			document.getElementById('sect5').style.display="none";
+		}
+		
+	</script>
+</head>
+<body>
+	<section id="pageHeader">
+		<img id="allinonelogo" src="img/allinone.png" alt="allinone" height="50" width="232" />
+		<img id="santanderlogo" src="img/santander.png" alt="santander" height="41" width="139">
+		
+		<div id="tabnav">
+		<ul class="tablist">
+			<li id="home" class="current" onclick="firstTab()">Etusivu</li>
+			<li id="newCars" onclick="secondTab()">Uudet autot</li>
+			<li id="usedCars" onclick="thirdTab()">Käytetyt autot</li>
+		</ul>
+	</div>
+	</section>
+	
+	<section id="sect1">
+		<h1>Edullista ja helppoa autoilua<br />ilman yllätyksiä</h1>
+		<p>Saat niputettua kaikki haluamasi autoilun kiinteät kustannukset yhdeksi<br />kuukausieräksi - ilman yllätyksiä.</p>
+		<div id="cols">
+			<div class="left">
+				<div class="bullet">
+						<div class="bulletpoint">
+							<img src="img/car.png" alt="car" height="53" width="48" />
+						</div>
+						Uusi tai käytetty auto
+				</div>
+				<div class="bullet">
+					<div class="bulletpoint">
+						<img src="img/repair.png" alt="repair" height="63" width="67" />
+					</div>
+					Huollot ja korjaukset
+				</div>
+				<div class="bullet">
+					<div class="bulletpoint">
+						<img src="img/euro.png" alt="repair" height="54" width="47" />
+					</div>
+					Rahoitus ja jopa taattu hyvityshinta
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<img id="autot" src="img/autokasa.png" alt="autot" height="192" width="560" />
+		</div>
+		<img class="symbol" src="img/down.png" alt="down" height="27" width="43" />
+	</section>
+	
+	<section id="sect2">
+		<img class="symbol" src="img/car.png" alt="car" height="53" width="48" />
+		<h1>Uusi auto tai käytetty auto kattavasta<br />valikoimasta</h1>
+		<div class="left">
+			<img id="citroen" src="img/citroen.png" alt="citroen" height="260" width="510" />
+		</div>
+		<div class="right" id="sect2text">
+			<p>Valitse haluamasi automalli ja lisävarusteet tai käytetty auto eri jälleenmyyjien kattavasta valikoimasta.</p>
+			<p>Saat All in One -auton tarvittaessa jopa ilman käsirahaa.</p>
+		</div>	
+	</section>
+	
+	<section id="sect3">
+		<img class="symbol" src="img/repair.png" alt="repair" height="63" width="67" />
+		<h1>3 palvelutasoa - 3 tapaa ajaa edullisesti ja<br />huolettomasti</h1>
+		
+		<img id="taulukko" src="img/table.png" alt="taulukko" height="571" width="686" />
+		
+		<p>Kaikki yhdellä edullisella kiinteällä kuukausihinnalla,<br />jopa ilman käsirahaa.</p>
+		
+		<div class="bttn" onclick="secondTab()">
+			<span>UUDET AUTOT</span>
+			<img src="img/right.png" height="22" width="14" />
+		</div>
+		<div class="bttn" onclick="thirdTab()">
+			<span>KÄYTETYT AUTOT</span>
+			<img src="img/right.png" height="22" width="14" />
+		</div>
+	</section>
+	
+	<section id="sect4">
+		<img class="symbol" src="img/euro.png" alt="repair" height="54" width="47" />
+		<h1>Rahoitus ja jopa taattu hyvityshinta<br />sopimuskauden päätteeksi</h1>
+		<div class="left" id="sect4text">
+			<p>All in One sopimukseen sisältyy aina edullinen autorahoitus, jopa ilman käsirahaa. Uusille autoille myös auton tuleva hyvityshinta on lyöty lukkoon jo ostohetkellä.</p>
+			<p>Siihen ei vaikuta se, mitä vaihtoautot maksavat tulevaisuudessa.</p>
+		</div>
+		<div class="right">
+			<img id="volvo" src="img/volvo.png" alt="volvo" height="237" width="546" />
+		</div>
+		<a href="#pageHeader">
+			<div class="bttn" onclick="secondTab()">
+			<span>UUDET AUTOT</span>
+			<img src="img/right.png" height="22" width="14" />
+		</div>
+		<div class="bttn" onclick="thirdTab()">
+			<span>KÄYTETYT AUTOT</span>
+			<img src="img/right.png" height="22" width="14" />
+		</div>
+		<a id="linkki" href="#pageHeader">Takaisin ylös</a>
+	</section>
+	
+	<section id="sect5">
+		<img src="img/santanderf.png" alt="santander" height="65" width="222" />
+		<div class="column">
+			<p>Santander Consumer Finance<br />Hermannin Rantatie 10<br />00580 Helsinki</p>
+			<p>Asiakaspalvelu:<br />Ma - Pe klo 9-16<br />p. 09 - 8564 5111<br />allinone@santanderconsumer.fi</p>
+		</div>
+		<div id="mid" class="column">
+			<p>All in One-palvelun tarjoaa Santander Consumer Finance Oy, suomalainen rahoitusyhtiö, joka on erikoistunut autokaupan ja vapaa-ajan ajoneuvojen rahoitukseen.</p>
+			<p>Olemme Suomen suurin ajoneuvorahoittaja ja meillä on asiakkaita yhteensä 150 000. Muita Santanderin tuotteita Suomen markkinoilla ovat vakuudeton Santander Laina ja Visa Classic –luottokortti.</p>
+		</div>
+		<div id="rightCol" class="column">
+			<p>Lisätietoja Santanderista ja sen palveluista: <a href="http://www.santanderconsumer.fi" target="_blank">www.santanderconsumer.fi »</a></p>
+		</div>
+	</section>
+	<iframe id="uudet" src="http://www.allinone.fi/uudet"></iframe>
+	<iframe id="kaytetyt" src="http://www.allinone.fi/kaytetyt/"></iframe>
+	<img id="digit" src="img/digit.jpg" alt="Dig-It" height="28" width="43" />
+</body>
+</html>
