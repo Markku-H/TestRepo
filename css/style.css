@@ -60,6 +60,7 @@ section {
 	background-color:#333333;
 	font-size:19px;
 	color:#ffffff;
+	cursor:pointer;
 }
 
 .tablist li:hover {
@@ -174,6 +175,7 @@ section {
 	display:inline-block;
 	text-align:left;
 	margin: 25px 38px 30px;
+	cursor:pointer;
 }
 
 .bttn img {
@@ -236,6 +238,6 @@ iframe {
 	left:20px;
 	bottom: 20px;
 	font-family: 'Arvo', serif;
-	font-size:6px;
+	font-size:8px;
 	line-height:5px;
 }
