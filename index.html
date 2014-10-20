@@ -23,6 +23,8 @@
 			document.getElementById('sect5').style.display="block";
 			document.getElementById('uudet').style.display="none";
 			document.getElementById('kaytetyt').style.display="none";
+			document.getElementById('uudet').src="http://www.allinone.fi/uudet/";
+			document.getElementById('kaytetyt').src="http://www.allinone.fi/kaytetyt/";
 			clearTimeout(t);
 		}
 		
@@ -32,6 +34,7 @@
 			document.getElementById('usedCars').className="";
 			hideContent();
 			document.getElementById('uudet').style.display="block";
+			document.getElementById('kaytetyt').src="http://www.allinone.fi/kaytetyt/";
 			document.getElementById('kaytetyt').style.display="none";
 			window.scrollTo(0,0);
 			setTimer();
@@ -45,6 +48,7 @@
 			hideContent();
 			document.getElementById('uudet').style.display="none";
 			document.getElementById('kaytetyt').style.display="block";
+			document.getElementById('uudet').src="http://www.allinone.fi/uudet/";
 			window.scrollTo(0,0);
 			setTimer();
 
