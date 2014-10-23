@@ -56,12 +56,13 @@ section {
 .tablist {
 	list-style:none;
 	display:inline-block;
-	margin: 58px 40px 0px;
+	margin: 60px -10px 0px;
+	padding: 0px;
 }
 
 .tablist li {
 	float:left;
-	padding: 11px 18px;
+	padding: 10px 18px;
 	margin: 0px 6px;
 	background-color:#333333;
 	font-size:19px;
@@ -75,7 +76,6 @@ section {
 }
 
 #tabnav {
-	text-align: center;
 	display: inline-block;
 }
 

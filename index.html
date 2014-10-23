@@ -11,55 +11,39 @@
 		
 		var t;
 		
-		function firstTab() {
-			document.getElementById('home').className="current";
-			document.getElementById('newCars').className="";
-			document.getElementById('usedCars').className="";
-
-			document.getElementById('sect1').style.display="block";
-			document.getElementById('sect2').style.display="block";
-			document.getElementById('sect3').style.display="block";
-			document.getElementById('sect4').style.display="block";
-			document.getElementById('sect5').style.display="block";
-			document.getElementById('uudet').style.display="none";
-			document.getElementById('kaytetyt').style.display="none";
-			document.getElementById('uudet').src="http://www.allinone.fi/uudet/";
-			document.getElementById('kaytetyt').src="http://www.allinone.fi/kaytetyt/";
-			clearTimeout(t);
-		}
-		
-		function secondTab() {
-			document.getElementById('home').className="";
-			document.getElementById('newCars').className="current";
-			document.getElementById('usedCars').className="";
-			hideContent();
-			document.getElementById('uudet').style.display="block";
-			document.getElementById('kaytetyt').src="http://www.allinone.fi/kaytetyt/";
-			document.getElementById('kaytetyt').style.display="none";
-			window.scrollTo(0,0);
-			setTimer();
-
-		}
-		
-		function thirdTab() {
+		function setCurrent(element) {
 			document.getElementById('home').className="";
 			document.getElementById('newCars').className="";
-			document.getElementById('usedCars').className="current";
-			hideContent();
+			document.getElementById('usedCars').className="";
+			document.getElementById('store').className="";
+			document.getElementById(element).className="current"
+			
+			document.getElementById('tab1').style.display="none";
 			document.getElementById('uudet').style.display="none";
-			document.getElementById('kaytetyt').style.display="block";
+			document.getElementById('kaytetyt').style.display="none";
+			document.getElementById('kauppa').style.display="none";
+			
 			document.getElementById('uudet').src="http://www.allinone.fi/uudet/";
+			document.getElementById('kaytetyt').src="http://www.allinone.fi/kaytetyt/";
+			document.getElementById('kauppa').src="http://www.allinone.fi/verkkokauppa/smart/";
+			
+			if (element == "home"){
+				document.getElementById('tab1').style.display="block";
+				clearTimeout(t);
+			}
+			else if(element == "newCars"){
+				document.getElementById('uudet').style.display="block";
+				setTimer();
+			}
+			else if(element == "usedCars"){
+				document.getElementById('kaytetyt').style.display="block";
+				setTimer();
+			}
+			else {
+				document.getElementById('kauppa').style.display="block";
+				setTimer();
+			}
 			window.scrollTo(0,0);
-			setTimer();
-
-		}
-		
-		function hideContent() {
-			document.getElementById('sect1').style.display="none";
-			document.getElementById('sect2').style.display="none";
-			document.getElementById('sect3').style.display="none";
-			document.getElementById('sect4').style.display="none";
-			document.getElementById('sect5').style.display="none";
 		}
 		
 	function setTimer(){
@@ -88,13 +72,15 @@
 		
 		<div id="tabnav">
 		<ul class="tablist">
-			<li id="home" class="current" onclick="firstTab()">Etusivu</li>
-			<li id="newCars" onclick="secondTab()">Uudet autot</li>
-			<li id="usedCars" onclick="thirdTab()">Käytetyt autot</li>
+			<li id="home" class="current" onclick="setCurrent('home')">Etusivu</li>
+			<li id="newCars" onclick="setCurrent('newCars')">Uudet autot</li>
+			<li id="usedCars" onclick="setCurrent('usedCars')">Käytetyt autot</li>
+			<li id="store" onclick="setCurrent('store')">Verkkokauppa</li>
 		</ul>
 	</div>
 	</section>
 	
+	<div id="tab1">
 	<section id="sect1">
 		<h1>Edullista ja helppoa autoilua<br />ilman yllätyksiä</h1>
 		<p>Saat niputettua kaikki haluamasi autoilun kiinteät kustannukset yhdeksi<br />kuukausieräksi - ilman yllätyksiä.</p>
@@ -192,8 +178,10 @@
 			<p>Lisätietoja Santanderista ja sen palveluista: <a href="http://www.santanderconsumer.fi" target="_blank">www.santanderconsumer.fi »</a></p>
 		</div>
 	</section>
+	</div>
 	<iframe id="uudet" src="http://www.allinone.fi/uudet"></iframe>
 	<iframe id="kaytetyt" src="http://www.allinone.fi/kaytetyt/"></iframe>
+	<iframe id="kauppa" src="http://www.allinone.fi/verkkokauppa/smart/"></iframe>
 	<p id="digit">Powered by<br />Dig-it Digital & Intelligent<sup>TM</sup></p>
 </body>
 </html>
