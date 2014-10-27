@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/MyFontsWebfontsKit.css">
 	<title>ALL-IN-1</title>
 
+	<script src="http://localhost:8080/opensign/agent.js"></script>
 	
 </head>
 <body>
@@ -126,16 +127,15 @@
 	<iframe id="content3" src="http://www.allinone.fi/kaytetyt/"></iframe>
 	<iframe id="content4" src="http://www.allinone.fi/verkkokauppa/smart/"></iframe>
 	<p id="digit">Powered by<br />Dig-it Digital & Intelligent<sup>TM</sup></p>
-	<p id="status" style="font-size:10px">status</p>
 
-<!--	<script src="http://127.0.0.1:8080/opensign/agent.js"></script>-->
+	
 	<script>
 		
-		var script_tag = document.createElement('script');
+		/*var script_tag = document.createElement('script');
 		script_tag.setAttribute('type', 'text/javascript');
-		script_tag.setAttribute('src', 'http://127.0.0.1:8080/opensign/agent.js');
+		script_tag.setAttribute('src', 'http://l:8080/opensign/agent.js');
 		script_tag.onerror = function() { document.getElementById("status").innerHTML="loading failed"; }
-		document.getElementsByTagName('head')[0].appendChild(script_tag);
+		document.getElementsByTagName('head')[0].appendChild(script_tag);*/
 	
 
 		var t;
@@ -192,21 +192,19 @@
 	  ga('create', 'UA-37088455-6', 'auto');
 	  
 	  /* set the device name */
-	  var dimensionValue = 'NA'; // device nickname
+	  var dimensionValue = 'mac'; // device mac
 	
-		
-	  if( typeof Agent !== 'undefined' ){
-		  dimensionValue = Agent.nickName(); // device nickname
-	  }
-	  else {
-	  	
-	  }
-	  console.log(dimensionValue);
-	  document.getElementById("status").innerHTML="dimensionValue: "+dimensionValue;
-	  ga('set', 'dimension1', dimensionValue);
-	  /* */	
-		
-	  ga('send', 'pageview');
+	setTimeout(function(){
+		  if( typeof Agent !== 'undefined' ){
+			  dimensionValue = Agent.macAddress();
+		  }
+
+		  ga('set', 'dimension1', dimensionValue);
+		  /* */	
+			
+		  ga('send', 'pageview');
+	  },3000)
+	  
 	  
 	</script>
 </body>
