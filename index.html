@@ -2,11 +2,12 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/MyFontsWebfontsKit.css">
 	<title>ALL-IN-1</title>
 
+	<!-- include agent.js to access Opensign device -->
 	<script src="http://localhost:8080/opensign/agent.js"></script>
 	
 </head>
@@ -125,7 +126,7 @@
 	</div>
 	<iframe id="content2" src="http://www.allinone.fi/uudet"></iframe>
 	<iframe id="content3" src="http://www.allinone.fi/kaytetyt/"></iframe>
-	<iframe id="content4" src="http://www.allinone.fi/verkkokauppa/smart/"></iframe>
+	<!--<iframe id="content4" src="http://www.allinone.fi/verkkokauppa/smart/"></iframe>-->
 	<p id="digit">Powered by<br />Dig-it Digital & Intelligent<sup>TM</sup></p>
 
 	
@@ -188,7 +189,12 @@
 					break;
 			}
 			
+			// send event to analytics
+			
 			ga('send', 'event', tabName, 'click', 'nav-buttons');
+			
+			
+			// set the visibility of content blocks
 			
 			for(i=0; i < elements.length;i++){
 				if(elements[i].id == content){
@@ -208,9 +214,10 @@
 				setTimer(); // start timer when navigating to some other tab than 1st
 			}
 	
+			// reset the tab URLs
 			document.getElementById('content2').src="http://www.allinone.fi/uudet/";
 			document.getElementById('content3').src="http://www.allinone.fi/kaytetyt/";
-			document.getElementById('content4').src="http://www.allinone.fi/verkkokauppa/smart/";
+			//document.getElementById('content4').src="http://www.allinone.fi/verkkokauppa/smart/";
 			
 			window.scrollTo(0,0); // scroll to page top when navigating to new tab
 		}
