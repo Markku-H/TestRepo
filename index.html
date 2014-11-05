@@ -21,7 +21,7 @@
 			<li id="tab1" class="current" onclick="setCurrent('tab1', 'content1')">Etusivu</li>
 			<li id="tab2" onclick="setCurrent('tab2','content2')">Uudet autot</li>
 			<li id="tab3" onclick="setCurrent('tab3','content3')">Käytetyt autot</li>
-			<li id="tab4" onclick="setCurrent('tab4','content4')">Verkkokauppa</li>
+		<!--	<li id="tab4" onclick="setCurrent('tab4','content4')">Verkkokauppa</li>-->
 		</ul>
 	</div>
 	</section>
@@ -126,7 +126,7 @@
 	</div>
 	<iframe id="content2" src="http://www.allinone.fi/uudet"></iframe>
 	<iframe id="content3" src="http://www.allinone.fi/kaytetyt/"></iframe>
-	<iframe id="content4" src="http://www.allinone.fi/verkkokauppa/smart/"></iframe>
+	<!--<iframe id="content4" src="http://www.allinone.fi/verkkokauppa/smart/"></iframe>-->
 	<p id="digit">Powered by<br />Dig-it Digital & Intelligent<sup>TM</sup></p>
 
 	
@@ -140,7 +140,7 @@
 			clearTimeout(t);
 			t=setTimeout(function(){
 	    	    setCurrent('tab1', 'content1')
-			},1200000);
+			},180000);
 		}
 	
 		/* analytics */
@@ -172,7 +172,8 @@
 			document.getElementById('tab1').className="";
 			document.getElementById('tab2').className="";
 			document.getElementById('tab3').className="";
-			document.getElementById('tab4').className="";
+			/*document.getElementById('tab4').className="";
+			 */
 			document.getElementById(tab).className="current"
 			
 			// send cleartext event to analytics
