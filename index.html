@@ -145,8 +145,8 @@
 
 		  var dimensionValue = 'noname'; // device name for analytics
 		  
+		  
 		// wait 3s, to ensure agent.js is available
-		
 		setTimeout(function(){
 
 			dimensionValue = Agent.nickName();
@@ -189,8 +189,8 @@
 					break;
 			}
 			
-			// send event to analytics
 			
+			// send event to analytics
 			ga('send', 'event', tabName, 'click', 'nav-buttons');
 			
 			
