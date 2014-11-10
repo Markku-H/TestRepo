@@ -75,6 +75,10 @@ section {
 	color: #333333;
 }
 
+.tablist li.changing { 
+	background-color: #aaa;
+}
+
 #tabnav {
 	display: inline-block;
 }
@@ -234,15 +238,23 @@ iframe {
 	width:1024px;
 	height:768px;
 	border: 0;
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
 }
+
 iframe.hidden {
 	height: 0px;	
+}
+
+#content3{
+	margin-top:-19px;
 }
 
 #digit  {
 	position:fixed;
 	left:20px;
-	bottom: 20px;
+	bottom:20px;
 	font-family: 'Arvo', serif;
 	font-size:10px;
 	line-height:5px;

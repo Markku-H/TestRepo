@@ -20,10 +20,9 @@
 		
 		<div id="tabnav">
 		<ul class="tablist">
-			<li id="tab1" class="current" ontouchend="setCurrent('tab1', 'content1')">Etusivu</li>
-			<li id="tab2" ontouchend="setCurrent('tab2','content2')">Uudet autot</li>
-			<li id="tab3" ontouchend="setCurrent('tab3','content3')">Käytetyt autot</li>
-		<!--	<li id="tab4" onclick="setCurrent('tab4','content4')">Verkkokauppa</li>-->
+			<li id="tab1" class="current" ontouchend="setCurrent('tab1', 'content1')" ontouchstart="touchEffect('tab1')">Etusivu</li>
+			<li id="tab2" ontouchend="setCurrent('tab2','content2')" ontouchstart="touchEffect('tab2')">Uudet autot</li>
+			<li id="tab3" ontouchend="setCurrent('tab3','content3')" ontouchstart="touchEffect('tab3')">Käytetyt autot</li>
 		</ul>
 	</div>
 	</section>
@@ -169,16 +168,17 @@
 	    	    setCurrent('tab1', 'content1');
 			},180000);
 		}
+
 		
 	  	// change the tab
 	  	function setCurrent(tab, content) {
-	  		console.log('setCurrent', tab, content);
-
+			document.getElementById('tab1').classList.remove('changing');
+			document.getElementById('tab2').classList.remove('changing');
+			document.getElementById('tab3').classList.remove('changing');
 			document.getElementById('tab1').classList.remove('current');
 			document.getElementById('tab2').classList.remove('current');
 			document.getElementById('tab3').classList.remove('current');
-			/*document.getElementById('tab4').className="";
-			 */
+
 			document.getElementById(tab).classList.add('current');
 			
 			// send cleartext event to analytics
@@ -188,8 +188,6 @@
 				case 'tab2': tabName="uudet";
 					break;
 				case 'tab3': tabName="käytetyt";
-					break;
-				case 'tab4': tabName="verkkokauppa";
 					break;
 				default: tabName="unknown tab";
 					break;
@@ -228,6 +226,12 @@
 			
 			window.scrollTo(0,0); // scroll to page top when navigating to new tab
 
+		}
+		
+		function touchEffect(elem){
+			if(!(document.getElementById(elem).classList.contains('current'))){
+				document.getElementById(elem).classList.add('changing');
+			}
 		}
 				
 	</script>
