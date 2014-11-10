@@ -14,13 +14,15 @@
 <body>
 	<section id="pageHeader">
 		<img id="allinonelogo" src="img/allinone.png" alt="allinone" height="50" width="232" />
-		<img id="santanderlogo" src="img/santander.png" alt="santander" height="41" width="139">
+		<a href="index.html">
+			<img id="santanderlogo" src="img/santander.png" alt="santander" height="41" width="139">
+		</a>
 		
 		<div id="tabnav">
 		<ul class="tablist">
-			<li id="tab1" class="current" onclick="setCurrent('tab1', 'content1')">Etusivu</li>
-			<li id="tab2" onclick="setCurrent('tab2','content2')">Uudet autot</li>
-			<li id="tab3" onclick="setCurrent('tab3','content3')">Käytetyt autot</li>
+			<li id="tab1" class="current" ontouchend="setCurrent('tab1', 'content1')">Etusivu</li>
+			<li id="tab2" ontouchend="setCurrent('tab2','content2')">Uudet autot</li>
+			<li id="tab3" ontouchend="setCurrent('tab3','content3')">Käytetyt autot</li>
 		<!--	<li id="tab4" onclick="setCurrent('tab4','content4')">Verkkokauppa</li>-->
 		</ul>
 	</div>
@@ -28,7 +30,7 @@
 	
 	<div id="content1">
 	<section id="sect1">
-		<h1>Edullista ja helppoa autoilua<br />ilman yllätyksiä</h1>
+		<h1>CK - Edullista ja helppoa autoilua<br />ilman yllätyksiä</h1>
 		<p>Saat niputettua kaikki haluamasi autoilun kiinteät kustannukset yhdeksi<br />kuukausieräksi - ilman yllätyksiä.</p>
 		<div id="cols">
 			<div class="left">
@@ -124,8 +126,10 @@
 		</div>
 	</section>
 	</div>
-	<iframe id="content2" src="http://www.allinone.fi/uudet"></iframe>
-	<iframe id="content3" src="http://www.allinone.fi/kaytetyt"></iframe>
+	
+	<iframe id="content2" class="hidden" src="http://www.allinone.fi/uudet"></iframe>
+	<iframe id="content3" class="hidden" src="http://www.allinone.fi/kaytetyt"></iframe>
+
 	<!--<iframe id="content4" src="http://www.allinone.fi/verkkokauppa/smart/"></iframe>-->
 	<p id="digit">Powered by<br />Dig-it Digital & Intelligent<sup>TM</sup></p>
 
@@ -168,12 +172,14 @@
 		
 	  	// change the tab
 	  	function setCurrent(tab, content) {
-			document.getElementById('tab1').className="";
-			document.getElementById('tab2').className="";
-			document.getElementById('tab3').className="";
+	  		console.log('setCurrent', tab, content);
+
+			document.getElementById('tab1').classList.remove('current');
+			document.getElementById('tab2').classList.remove('current');
+			document.getElementById('tab3').classList.remove('current');
 			/*document.getElementById('tab4').className="";
 			 */
-			document.getElementById(tab).className="current"
+			document.getElementById(tab).classList.add('current');
 			
 			// send cleartext event to analytics
 			switch(tab){
@@ -198,16 +204,18 @@
 			
 			for(i=0; i < elements.length;i++){
 				if(elements[i].id == content){
-					elements[i].style.display="block";
+					elements[i].classList.remove('hidden');
 				}
 				else {
-					elements[i].style.display="none";
+					elements[i].classList.add('hidden');
 				}
 			}
 			
 			if (content == document.getElementById('content1').id){
 				document.getElementById('content1').style.display="block";
 				clearTimeout(t); // reset timer when navigating to first tab
+				document.getElementById('content2').src="http://www.allinone.fi/uudet";
+				document.getElementById('content3').src="http://www.allinone.fi/kaytetyt";
 			}
 			else {
 				document.getElementById('content1').style.display="none";
@@ -215,8 +223,8 @@
 			}
 			
 			// reset the tab URLs
-			document.getElementById('content2').src="http://www.allinone.fi/uudet";
-			document.getElementById('content3').src="http://www.allinone.fi/kaytetyt";
+			// document.getElementById('content2').src="http://www.allinone.fi/uudet";
+			// document.getElementById('content3').src="http://www.allinone.fi/kaytetyt";
 			
 			window.scrollTo(0,0); // scroll to page top when navigating to new tab
 

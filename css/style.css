@@ -231,9 +231,12 @@ section {
 }
 
 iframe {
-	width:100%;
+	width:1024px;
 	height:768px;
-	display:none;
+	border: 0;
+}
+iframe.hidden {
+	height: 0px;	
 }
 
 #digit  {
